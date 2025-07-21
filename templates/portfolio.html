@@ -1,0 +1,52 @@
+
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main class="main">
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Here are some of the projects I've worked on as I continue learning and growing as a
+           full-stack developer.</p>
+           </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry"
+         data-sort="original-order">
+<h1>My Projects Portfolio</h1>
+
+<p>Here are some of the projects I've worked on as I continue learning and growing as a full-stack developer.</p>
+
+<div class="projects">
+
+  <div class="project-card">
+    <h2>To-Do List App</h2>
+    <p>A simple CRUD-based task manager built using Django. My first backend project!</p>
+    <p><strong>Technologies:</strong> Django, Python, HTML, CSS</p>
+  </div>
+
+  <div class="project-card">
+    <h2>Edumart Bookstore Website</h2>
+    <p>An online bookstore built with ReactJS and Bootstrap. Focused on component-based architecture and responsive design.</p>
+    <p><strong>Technologies:</strong> ReactJS, JavaScript, CSS, Bootstrap</p>
+  </div>
+
+  <div class="project-card">
+    <h2>Personal Portfolio Website</h2>
+    <p>This website! Built using Django and HTML, to showcase my skills, projects, and growth as a developer.</p>
+    <p><strong>Technologies:</strong> Django, Python, HTML, CSS</p>
+  </div>
+</div>
+
+</div>
+</div>
+ {% endblock  %}
+
+   
