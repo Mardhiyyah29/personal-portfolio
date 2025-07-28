@@ -13,3 +13,5 @@ urlpatterns = [
 
     
 ]
+# Is responsible for defining the URL patterns for the personal name application.
+# This file maps URLs to views, allowing users to navigate through different pages of the application.
