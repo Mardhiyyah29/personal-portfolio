@@ -122,14 +122,14 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER='abdurkabirmardhiyyah@gmail.com'
-EMAIL_HOST_PASSWORD='your_password_here'  # Replace with your actual email password
-DEFAULT_FROM_EMAIL='EMAIL_HOST_USER'
-CONTACT_RECEIVER_EMAIL='abdurkabirmardhiyyah@gmail.com'
-# This is the email address where contact messages will be sent
+# Email settings
 # Make sure to set this to a valid email address in your settings
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'abdurkabirmardhiyyah@gmail.com'  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = 'qaappgszuwreugzn'  # Get from Google Account
+EMAIL_TIMEOUT = 10  # Prevent timeouts

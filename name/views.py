@@ -17,27 +17,31 @@ def Contact(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        ContactMessage.objects.create(
-            name=name,
-            email=email,
-            subject=subject,
-            message=message
+        if not all([name, email, subject, message]):
+            return render(request, 'contact.html', {'error': 'Please fill all required fields.'})
+
+        email_content = f"From: {name} <{email}>\n\nMessage:\n{message}"
+
+        try:
+            send_mail(
+                subject=subject,
+                message=email_content,
+                from_email=email,
+                recipient_list=[settings.EMAIL_HOST_USER],
+                fail_silently=False,
             )
-        full_message = f"Message from {name} <{email}>:\n\n{message}"
-        send_mail (
-        subject,
-        full_message,
-        settings.DEFAULT_FROM_EMAIL
-        [settings .CONTACT_RECEIVER_EMAIL],
-     )
-        messages.success(request,"Your message has been sent successfully!")
-        return redirect('contact')
+            return render(request, 'contact.html', {'success': 'Your message has been sent. Thank you!'})
+        except Exception as e:
+            return render(request, 'contact.html', {'error': f"Failed to send: {str(e)}"})
+
     return render(request, 'contact.html')
 
-        # Process the form data here
+ # Process the form data here
         # Here you would typically save the contact message to the database
         # For example: ContactMessage.objects.create(name=name, email=email, subject=subject, 
         # message=message)
+
+
 def Resume(request):
     return render(request, 'resume.html')
 def Portfolio(request):
