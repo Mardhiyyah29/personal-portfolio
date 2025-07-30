@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from .models import ContactMessage
 from  django.core.mail import send_mail
 from django.conf import settings
@@ -21,7 +21,9 @@ def Contact(request):
             return render(request, 'contact.html', {'error': 'Please fill all required fields.'})
 
         email_content = f"From: {name} <{email}>\n\nMessage:\n{message}"
-
+        # Save the contact message to the database
+        # ContactMessage.objects.create(name=name, email=email, subject=subject, message=message)
+        # subject = f"Contact Form Submission: {subject}"
         try:
             send_mail(
                 subject=subject,
